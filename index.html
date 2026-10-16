@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Reno DTF","description":"Custom DTF transfers and gang sheets in Reno, NV with same-day printing, pickup and shipping.","url":"https://www.renodtfprinting.com","image":"https://www.renodtfprinting.com/assets/img/logo.png","address":{"@type":"PostalAddress","streetAddress":"2536 Sutro St Unit 7","addressLocality":"Reno","addressRegion":"NV","postalCode":"89512","addressCountry":"US"},"sameAs":["https://www.instagram.com/renodtf/"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Reno DTF","description":"Custom DTF transfers and gang sheets in Reno, NV with same-day printing, pickup and shipping.","url":"https://www.renodtfprinting.com","image":"https://www.renodtfprinting.com/assets/img/logo.png","video":"https://www.renodtfprinting.com/assets/video/print-floor.mp4","address":{"@type":"PostalAddress","streetAddress":"2536 Sutro St Unit 7","addressLocality":"Reno","addressRegion":"NV","postalCode":"89512","addressCountry":"US"},"sameAs":["https://www.instagram.com/renodtf/"]}
 </script>
 </head>
 <body>
@@ -26,7 +26,7 @@
 </div></div>
 <header class="header"><nav class="nav container" aria-label="Main">
   <a class="brand" href="/"><img src="/assets/img/logo.png" alt="Reno DTF logo" width="48" height="48">Reno DTF</a>
-  <div class="nav-links"><a href="/" class="active">Home</a><a href="/#order">Gang Sheets</a><a href="/how-to-use.html">How To Use</a><a href="/contact.html">Contact / Pickup</a></div>
+  <div class="nav-links"><a href="/" class="active">Home</a><a href="/#order">Gang Sheets</a><a href="/#behind-the-scenes">Behind the Scenes</a><a href="/how-to-use.html">How To Use</a><a href="/contact.html">Contact / Pickup</a></div>
   <div class="nav-actions">
     <a class="icon-btn" data-ig aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
     <a class="icon-btn" data-shop="login" aria-label="Sign in with Shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
@@ -35,10 +35,21 @@
     <button class="icon-btn menu-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </nav></header>
-<div class="mobile-menu"><a href="/" class="active">Home</a><a href="/#order">Gang Sheets</a><a href="/how-to-use.html">How To Use</a><a href="/contact.html">Contact / Pickup</a><a class="btn btn-primary" data-shop="builder">Build Your Gang Sheet</a><a class="btn btn-shop" data-shop="login">Sign in with Shop</a></div>
+<div class="mobile-menu"><a href="/" class="active">Home</a><a href="/#order">Gang Sheets</a><a href="/#behind-the-scenes">Behind the Scenes</a><a href="/how-to-use.html">How To Use</a><a href="/contact.html">Contact / Pickup</a><a class="btn btn-primary" data-shop="builder">Build Your Gang Sheet</a><a class="btn btn-shop" data-shop="login">Sign in with Shop</a></div>
 <main id="main">
 <section class="hero">
+  <div class="video-bg" aria-hidden="true">
+    <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="/assets/video/print-floor-poster.jpg">
+      <source src="/assets/video/print-floor.webm" type="video/webm">
+      <source src="/assets/video/print-floor.mp4" type="video/mp4">
+    </video>
+    <div class="video-tint"></div><div class="scanlines"></div><div class="scan-beam"></div>
+  </div>
   <canvas id="ink-canvas" aria-hidden="true"></canvas>
+  <div class="viewfinder" aria-hidden="true"><i></i><i></i><i></i><i></i>
+    <span class="rec"><b></b>REC · LIVE FROM THE PRINT FLOOR</span>
+    <span class="tc" data-timecode>00:00:00:00</span>
+  </div>
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">Direct To Film Printing · Reno, NV</span>
@@ -80,7 +91,47 @@
   </div>
 </section>
 
-<section id="order" style="padding-top:20px">
+<section id="behind-the-scenes" class="bts">
+  <div class="container bts-grid">
+    <div class="bts-copy">
+      <span class="eyebrow">Behind the scenes</span>
+      <h2>Watch your sheet <span class="grad-text">come to life.</span></h2>
+      <p class="lead">This is the real Reno DTF print floor — every gang sheet runs through our printer here in Reno before it lands in your hands.</p>
+      <ol class="process" data-process>
+        <li class="active"><span class="p-num">01</span><div><h4>You build the sheet</h4><p>Drop your designs into the online gang sheet builder and check out.</p></div></li>
+        <li><span class="p-num">02</span><div><h4>Ink hits the film</h4><p>Your sheet prints in full color with a white base so designs pop on any fabric.</p></div></li>
+        <li><span class="p-num">03</span><div><h4>Adhesive & cure</h4><p>The print gets its hot-melt adhesive and is cured so it’s ready to press.</p></div></li>
+        <li><span class="p-num">04</span><div><h4>Quality check & notify</h4><p>We roll it up, check it over and send your pickup notification.</p></div></li>
+      </ol>
+      <div class="process-bar"><span data-process-bar></span></div>
+    </div>
+    <div class="bts-media">
+      <div class="monitor">
+        <div class="monitor-top"><span></span><span></span><span></span><em>cam_02 · gang-sheet-run</em></div>
+        <div class="monitor-screen">
+          <video autoplay muted loop playsinline preload="metadata" poster="/assets/video/gang-sheet-run-poster.jpg" data-bts-video>
+            <source src="/assets/video/gang-sheet-run.webm" type="video/webm"><source src="/assets/video/gang-sheet-run.mp4" type="video/mp4">
+          </video>
+          <div class="scanlines"></div>
+          <span class="rec small"><b></b>LIVE</span>
+        </div>
+      </div>
+      <div class="monitor monitor-alt">
+        <div class="monitor-top"><span></span><span></span><span></span><em>cam_01 · print head</em></div>
+        <div class="monitor-screen">
+          <video autoplay muted loop playsinline preload="metadata" poster="/assets/video/print-floor-poster.jpg">
+            <source src="/assets/video/print-floor.webm" type="video/webm">
+            <source src="/assets/video/print-floor.mp4" type="video/mp4">
+          </video>
+          <div class="scanlines"></div>
+        </div>
+      </div>
+      <div class="press-tag t2 bts-tag">🖨️ <b>Printed</b> in Reno</div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
   <div class="container">
     <div class="section-head reveal"><span class="eyebrow">Start an order</span><h2>Build it. Print it. <span class="grad-text">Press it.</span></h2></div>
     <div class="paths">
@@ -168,7 +219,7 @@
 
 <section style="padding-top:0">
   <div class="container">
-    <div class="cta-band reveal">
+    <div class="cta-band reveal"><video class="cta-video" autoplay muted loop playsinline preload="none" poster="/assets/video/gang-sheet-run-poster.jpg" aria-hidden="true"><source src="/assets/video/gang-sheet-run.webm" type="video/webm"><source src="/assets/video/gang-sheet-run.mp4" type="video/mp4"></video>
       <span class="eyebrow">Print. Press. Profit.</span>
       <h2>Ready to <span class="grad-text">stay fresh?</span></h2>
       <p class="lead" style="margin-inline:auto">Start your gang sheet now and beat the 9AM cutoff.</p>

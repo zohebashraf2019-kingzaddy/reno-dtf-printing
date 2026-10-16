@@ -133,8 +133,7 @@
     }
     function frame(t) {
       ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "rgba(7,6,11,0.22)";
-      ctx.fillRect(0, 0, w, h);
+      ctx.clearRect(0, 0, w, h);
       ctx.globalCompositeOperation = "lighter";
       for (const b of blobs) {
         const a = t * b.sp + b.ph;
@@ -172,6 +171,47 @@
     size();
     addEventListener("resize", size);
     requestAnimationFrame(frame);
+  }
+
+  /* ---------- Background videos ----------
+     Autoplay muted loops; pause when off-screen to save battery,
+     and stay paused for visitors who prefer reduced motion. */
+  const vids = document.querySelectorAll("video");
+  vids.forEach((v) => {
+    v.muted = true;
+    if (reduce) { v.removeAttribute("autoplay"); v.pause(); return; }
+    const vio = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { if (v.preload === "none") v.preload = "auto"; v.play().catch(() => {}); }
+      else v.pause();
+    }, { threshold: 0.05 });
+    vio.observe(v);
+  });
+
+  /* Camera-style running timecode on the hero */
+  const tc = document.querySelector("[data-timecode]");
+  if (tc && !reduce) {
+    const t0 = performance.now();
+    (function run() {
+      const ms = performance.now() - t0;
+      const f = Math.floor((ms % 1000) / 33.3), sec = Math.floor(ms / 1000);
+      const pad = (n) => String(n).padStart(2, "0");
+      tc.textContent = `${pad(Math.floor(sec / 3600))}:${pad(Math.floor(sec / 60) % 60)}:${pad(sec % 60)}:${pad(f)}`;
+      requestAnimationFrame(run);
+    })();
+  }
+
+  /* Behind-the-scenes process stepper (cycles alongside the video) */
+  const steps = document.querySelectorAll("[data-process] li");
+  const bar = document.querySelector("[data-process-bar]");
+  if (steps.length) {
+    let i = 0;
+    const show = (n) => {
+      steps.forEach((li, k) => li.classList.toggle("active", k === n));
+      if (bar) bar.style.width = ((n + 1) / steps.length) * 100 + "%";
+    };
+    steps.forEach((li, k) => li.addEventListener("mouseenter", () => { i = k; show(i); }));
+    show(0);
+    if (!reduce) setInterval(() => { i = (i + 1) % steps.length; show(i); }, 3200);
   }
 
   /* ---------- Contact form → opens email to the shop ---------- */

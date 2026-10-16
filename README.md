@@ -34,3 +34,11 @@ then update `shopify.base` in `js/config.js`.
 python3 -m http.server 8000
 ```
 then open http://localhost:8000
+
+## Videos
+Looping background videos live in `assets/video/` (muted, autoplay, both `.webm` and `.mp4` for all browsers):
+- `print-floor` — print head running (hero background, inner page headers, behind-the-scenes monitor)
+- `gang-sheet-run` — gang sheet coming off the printer (behind-the-scenes monitor, bottom CTA)
+
+To swap a video, replace the file with the same name. Keep clips short (5–15s) and under ~3 MB.
+Videos pause automatically when scrolled off screen and for visitors with "reduce motion" on.
